@@ -1,0 +1,4 @@
+{
+  "code": "PRODUCT_ALREADY_EXISTS",
+  "message": "The PRODUCT with ID %s already exists"
+}

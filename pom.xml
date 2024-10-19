@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>tn.wecraft.socle.quarkus</groupId>
+        <artifactId>api-qk-parent-pom</artifactId>
+        <version>2.0.1</version>
+    </parent>
+
+    <groupId>tn.wecraft.artisans</groupId>
+    <artifactId>api-artisans</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>api-artisans</name>
+
+    <properties>
+        <socle-api.version>2.0.1</socle-api.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>tn.wecraft.socle.quarkus</groupId>
+                <artifactId>lib-qk-starter</artifactId>
+                <version>${socle-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tn.wecraft.socle.quarkus</groupId>
+                <artifactId>lib-qk-integration-test</artifactId>
+                <version>${socle-api.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>tn.wecraft.socle.quarkus</groupId>
+            <artifactId>lib-qk-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tn.wecraft.socle.quarkus</groupId>
+            <artifactId>lib-qk-integration-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-mongodb-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-mongodb-panache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+    </dependencies>
+
+</project>

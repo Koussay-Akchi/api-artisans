@@ -1,0 +1,74 @@
+quarkus:
+  http:
+    root-path: artisans
+    cors:
+      origins: "*"
+  micrometer:
+    binder:
+      http-client:
+        enabled: true
+      vertx:
+        enabled: true
+  hibernate-orm:
+    database:
+      generation: none
+    log:
+      sql: false
+      queries-slower-than-ms: 1000
+  keycloak.devservices.enabled: false
+  native:
+    resources:
+      includes: swagger/**;
+  swagger-ui:
+    always-include: true
+    path: /swagger-ui
+  application:
+    name: api-artisans
+  health:
+    extensions:
+      enabled: false
+
+api:
+  identity:
+    name: api-artisans
+base-url-files: http://localhost:8080/products/
+"%dev":
+  quarkus:
+    mongodb:
+      connection-string: mongodb://mongo:wecraft@localhost:27017
+      database: api-artisans
+      generation: update
+    http:
+      port: 9009
+  rest-activities/mp-rest/url: http://localhost:9006/activities
+  rest-activities/property/resteasy.connectionPoolSize: 10
+  rest-products/mp-rest/url: http://localhost:8080/products
+  rest-products/property/resteasy.connectionPoolSize: 10
+  rest-files/mp-rest/connectTimeout: 500000
+  rest-files/mp-rest/readTimeout: 500000
+  rest-files/mp-rest/url: http://localhost:9012
+  rest-files/property/resteasy.connectionPoolSize: 10
+  base-url-files: http://localhost:9009/artisans/
+
+"%envdev":
+  quarkus:
+    http:
+      cors:
+        origins: https://dev.artisans.wecraft.tn, http://localhost:3000,http://127.0.0.1:3000
+    mongodb:
+      connection-string: mongodb://mongo:wecraft@mongo:27017
+      database: api-artisans
+  rest-products/mp-rest/url: https://artisans.dev.wecraft.tn/api/products
+  rest-activities/mp-rest/url: https://artisans.dev.wecraft.tn/api/activities
+  rest-files/mp-rest/connectTimeout: 5000
+  rest-files/mp-rest/readTimeout: 5000
+  rest-files/mp-rest/url: http://api-files:9090
+  rest-files/property/resteasy.connectionPoolSize: 10
+  base-url-files: https://artisans.dev.wecraft.tn/api/artisans/
+
+"%test":
+  quarkus:
+    mongodb:
+      database: api-artisans
+      devservices:
+        image-name: mongo:6.0

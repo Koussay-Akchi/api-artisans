@@ -1,0 +1,107 @@
+asyncapi: 2.6.0
+info:
+  title: Api Banking Kafka Cluster Docs
+  version: 1.0.0
+channels:
+  new-bank-statement:
+    publish:
+      summary: Publishes new uploaded bank statement
+      operationId: publishBankStatement
+      message:
+        $ref: '#/components/messages/NewBankStatment'
+  new-bank-statement-extraction:
+    subscribe:
+      summary: Subscribes to extracted bank statement
+      operationId: subscribeToBankStatementExtraction
+      message:
+        $ref: '#/components/messages/ExtractedBankStatement'
+  new-bank-statement-transactions:
+    publish:
+      summary: Subscribes to extracted bank statement transactions
+      operationId: subscribeToTransactions
+      message:
+        $ref: '#/components/messages/ExtractedTransactions'
+components:
+  messages:
+    NewBankStatment:
+      name: NewBankStatementData
+      title: New Bank Statement Data
+      summary: Data for a new bank statement to be extracted
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/NewBankStatement'
+    ExtractedBankStatement:
+      name: BankStatementData
+      title: Extracted Bank Statement Data
+      summary: Data for a new extracted bank statement
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ExtractedBankStatement'
+    ExtractedTransactions:
+      name: ExtractedTransactionsData
+      title: Extracted Transactions Data
+      summary: Extracted transactions data from a bank statement
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ExtractedTransactions'
+  schemas:
+    NewBankStatement:
+      type: object
+      propreties:
+        fileId:
+          type: string
+          format: uuid
+        bankCode:
+          type: string
+      example:
+        fileId: "64564d1f37a333240a2f2b6a"
+        bankCode: "1233"
+    ExtractedBankStatement:
+      type: object
+      properties:
+        fileId:
+          type: string
+          format: uuid
+        iban:
+          type: string
+        rib:
+          type: string
+        currencyCode:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        oldBalance:
+          type: number
+        newBalance:
+          type: number
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+    Transaction:
+      type: object
+      properties:
+        annotation:
+          type: string
+        date:
+          type: string
+          format: date-time
+        valueDate:
+          type: string
+          format: date-time
+        amount:
+          type: number
+        type:
+          type: string
+    ExtractedTransactions:
+      type: object
+      properties:
+        bankStatementId:
+          type: string
+          format: uuid
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+
