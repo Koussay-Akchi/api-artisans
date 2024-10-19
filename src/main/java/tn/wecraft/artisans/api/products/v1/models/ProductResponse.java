@@ -13,84 +13,46 @@ public class ProductResponse {
     @Schema(example = "1", description = "The product id")
     private ObjectId id;
 
-    @Schema(example = "Doe", description = "The last name")
-    private String lastName;
+    @Schema(example = "Beautiful Handmade Vase", description = "The name of the product")
+    private String nom;
 
-    @Schema(example = "John", description = "The first name")
-    private String firstName;
+    @Schema(example = "A beautiful handcrafted vase made by local artisans.", description = "Description of the product")
+    private String description;
 
-    @Schema(example = "1234567890", description = "The phone number")
-    private String phone;
+    @Schema(example = "99.99", description = "The price of the product")
+    private Float prix;
 
-    @Schema(example = "john.doe@example.com", description = "The email address")
-    private String email;
+    @Schema(example = "true", description = "Is the product in stock?")
+    private Boolean stock;
 
-    @Schema(example = "7 rue X", description = "The address")
+    @Schema(example = "true", description = "Is the product handmade?")
+    private Boolean faitmain;
+
+    @Schema(example = "Ariana", description = "Governorate where the product is located")
+    private String gouvernorat;
+
+    @Schema(example = "Soukra", description = "City where the product is located")
+    private String ville;
+
+    @Schema(example = "1 Rue X", description = "Address where the product is located")
     private String address;
 
-    @Schema(example = "Private", description = "The activity domain")
-    private String activity;
+    @Schema(example = "John Doe", description = "Name of the artisan/owner")
+    private String artisan;
 
-    @Schema(example = "Ariana")
-    private String governorate;
+    @Schema(example = "john.doe@example.com", description = "Email of the artisan/owner")
+    private String email;
 
-    @Schema(example = "Ariana")
-    private String city;
-
-    @Schema(example = "1", description = "The establishment id")
-    private String establishmentId;
-
-    @Schema(example = "B2", description = "The importance of the product")
-    private String potential;
-
-    @Schema(example = "Doctor", description = "The profession category")
-    private String profession;
-
-    @Schema(example = "Pediatrics", description = "The branch of medical practice")
-    private String specialty;
-
-    @Schema(example = "Doctor", description = "The level of training, expertise, and qualification")
-    private String grade;
-
-    @Schema(example = "Department Head", description = "The role or responsibilities")
-    private String function;
-    @Schema(example = "product_image.jpg", description = "URL or filename of the product image")
-    private String image;
-    @Schema(example = "2", description = "The number of children the product has")
-    private String childrenNumber;
-
-    @Schema(example = "XYZ Association", description = "The association the product is affiliated with")
-    private String association;
-
-    @Schema(example = "123 Street, City", description = "The home address of the product")
-    private String homeAddress;
-
-    @Schema(example = "987654321", description = "The personal phone number of the product")
-    private String personalPhone;
-
-    @Schema(example = "1990-05-25", description = "The birthday of the product")
-    private String birthday;
-
-    @Schema(example = "profile", description = "The profile of the product")
-    private String profile;
-
-    @Schema(example = "Additional comments about the product")
-    private String comment;
-
-    @Schema(example = "facebook.com/johndoe", description = "The Facebook profile of the product")
+    @Schema(example = "facebook.com/johndoe", description = "Facebook profile of the artisan")
     private String facebook;
 
-    @Schema(example = "linkedin.com/in/johndoe", description = "The LinkedIn profile of the product")
-    private String linkedin;
-
-    @Schema(example = "instagram.com/johndoe", description = "The Instagram profile of the product")
+    @Schema(example = "instagram.com/johndoe", description = "Instagram profile of the artisan")
     private String instagram;
 
-    @Schema(example = "VIP", description = "The classification of the product")
-    private String classification;
+    @Schema(example = "bijoux", description = "Category of the product")
+    private String categorie;
 
-    private String partnershipType;
-
-    private String partnershipAgreement;
+    @Schema(example = "2023-10-19", description = "Creation date of the product")
+    private String createdAt;
 
 }

@@ -16,120 +16,60 @@ public class ProductRequest {
 
     @RestForm
     @NotBlank
-    @Schema(required = true, example = "Doe", description = "The last name")
-    private String lastName;
+    @Schema(required = true, example = "Artisan Name", description = "The name of the product")
+    private String nom;
 
     @RestForm
     @NotBlank
-    @Schema(required = true, example = "John", description = "The first name")
-    private String firstName;
+    @Schema(required = true, example = "Beautiful handcrafted vase", description = "Description of the product")
+    private String description;
+
+    @RestForm
+    @Schema(required = true, example = "99.99", description = "The price of the product")
+    private Float prix;
+
+    @RestForm
+    @Schema(required = true, example = "true", description = "Is the product in stock?")
+    private Boolean stock;
+
+    @RestForm
+    @Schema(required = true, example = "true", description = "Is the product handmade?")
+    private Boolean faitmain;
 
     @RestForm
     @NotBlank
-    @Schema(required = true, example = "98123456", description = "The phone number")
-    private String phone;
-
-    @RestForm
-    @Email
-    @Schema(required = true, example = "john.doe@example.com", description = "The email address")
-    private String email;
+    @Schema(required = false, example = "Ariana", description = "Governorate where the product is located")
+    private String gouvernorat;
 
     @RestForm
     @NotBlank
-    @Schema(required = false, example = "1", description = "The establishment ID")
-    private String establishmentId;
+    @Schema(required = false, example = "Soukra", description = "City where the product is located")
+    private String ville;
 
     @RestForm
-    @NotBlank
-    @Schema(required = false, example = "Ariana", description = "governorate where the product operates")
-    private String governorate;
-
-    @RestForm
-    @NotBlank
-    @Schema(required = false, example = "Soukra", description = "city where the product operates")
-    private String city;
-
-    @RestForm
-    @NotBlank
-    @Schema(required = true, example = "Private", description = "product's activity domain")
-    private String activity;
-
-    @RestForm
-    @Schema(required = false, example = "1 rue X", description = "address of the product")
+    @Schema(required = false, example = "1 Rue X", description = "Address where the product is located")
     private String address;
 
     @RestForm
-    @Schema(required = false, example = "B2", description = "The importance of the product")
-    private String potential;
+    @Schema(required = true, example = "John Doe", description = "Name of the artisan/owner")
+    private String artisan;
 
     @RestForm
-    @Schema(required = true, example = "Doctor", description = "The profession category")
-    private String profession;
+    @Email
+    @Schema(required = true, example = "john.doe@example.com", description = "Email of the artisan/owner")
+    private String email;
 
     @RestForm
-    @Schema(required = false, example = "Pediatrics", description = "The branch of medical practice")
-    private String specialty;
-
-    @RestForm
-    @Schema(required = false, example = "Doctor", description = "The level of training, expertise, and qualification")
-    private String grade;
-
-    @RestForm
-    @Schema(required = false, example = "Department Head", description = "The role or responsibilities")
-    private String function;
-
-    @RestForm
-    @Schema(required = false, example = "1", description = "address of the product's profile picture")
-    private FileUpload image;
-
-    @RestForm
-    @Schema(required = false, example = "3", description = "The number of children the product has")
-    private String childrenNumber;
-
-    @RestForm
-    @Schema(required = false, example = "XYZ Association", description = "The association the product is affiliated with")
-    private String association;
-
-    @RestForm
-    @Schema(required = false, example = "123 Street, City", description = "The home address of the product")
-    private String homeAddress;
-
-    @RestForm
-    @Schema(required = false, example = "987654321", description = "The personal phone number of the product")
-    private String personalPhone;
-
-    @RestForm
-    @Schema(required = false, example = "1990-05-25", description = "The birthday of the product")
-    private String birthday;
-
-    @RestForm
-    @Schema(required = false, example = "profile", description = "The profile of the product")
-    private String profile;
-
-    @RestForm
-    @Schema(required = false, example = "Additional comments about the product")
-    private String comment;
-
-    @RestForm
-    @Schema(required = false, example = "facebook.com/johndoe", description = "The Facebook profile of the product")
+    @Schema(required = false, example = "facebook.com/johndoe", description = "Facebook profile of the artisan")
     private String facebook;
 
     @RestForm
-    @Schema(required = false, example = "linkedin.com/in/johndoe", description = "The LinkedIn profile of the product")
-    private String linkedin;
-
-    @RestForm
-    @Schema(required = false, example = "instagram.com/johndoe", description = "The Instagram profile of the product")
+    @Schema(required = false, example = "instagram.com/johndoe", description = "Instagram profile of the artisan")
     private String instagram;
 
     @RestForm
-    @Schema(required = false, example = "VIP", description = "The classification of the product")
-    private String classification;
-
-    @RestForm
-    private String partnershipType;
-
-    @RestForm
-    private String partnershipAgreement;
+    @NotBlank
+    @Schema(required = true, example = "Bijoux", description = "Category of the product")
+    private String categorie;
 
 }
