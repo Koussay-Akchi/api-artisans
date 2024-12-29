@@ -1,2 +1,2 @@
 # api-artisans
-API backend pour projet "Artisan Women Project" CCCA 2025-2025
+API backend pour projet "Artisan Women Project" CCCA 2024-2025
